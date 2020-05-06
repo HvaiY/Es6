@@ -13,3 +13,33 @@
 //   "extends": "eslint-config-airbnb"
 // }
 // 现在就可以检查，当前项目的代码是否符合预设的规则
+
+// ---------------------------------分割线--------------------------------------------------
+
+console.log("--------------内部函数-----------------------");
+//内部函数
+function parentFunc() {
+  var a = 10;
+  function nestedFunc() {
+    var b = 20;
+    return a + b;
+  }
+  return nestedFunc();
+}
+
+console.log(parentFunc());
+
+console.log("------------------闭包-------------------");
+// 闭包 作用域的调用
+function makeAdder(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+var add5 = makeAdder(5);
+var add20 = makeAdder(20);
+console.log(add5(6));
+console.log(add20(7));
+window.add20 = add20;
+
+console.log("-------------------------------------");
